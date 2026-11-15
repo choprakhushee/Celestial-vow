@@ -1243,7 +1243,7 @@ function buildLegend() {
 function legendary() {
   achieve("legend"); const ov = $("#legend"); ov.classList.add("open"); Audio.setMood("epic"); Audio.sfx.bell(440); Audio.sfx.bell(659.25);
   Particles.setMode("lanterns");
-  if (MOTION) { gsap.fromTo(".seal", { scale: 0.2, rotation: -40, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.4, ease: "expo.out" }); gsap.fromTo("#legend .msg p", { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.4, delay: 0.8, duration: 1 }); }
+  if (MOTION) { gsap.fromTo(".seal", { scale: 0.2, rotation: -40, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.4, ease: "expo.out" }); gsap.fromTo("#legend .msg p", { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.25, delay: 0.3, duration: 0.9 }); }
 }
 
 /* ==========================================================================
