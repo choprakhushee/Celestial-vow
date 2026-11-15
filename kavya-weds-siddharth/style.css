@@ -483,7 +483,7 @@ a { color: inherit; }
 .rsvp-panel { position: relative; z-index: 5; margin: 18px 12px 0; padding: 26px 18px 22px; }
 .field { display: block; margin-top: 16px; }
 .field > span { display: block; margin-bottom: 6px; }
-.field input { width: 100%; min-height: 50px; padding: 10px 14px; font: 600 19px var(--f-body); color: #2b1a0a; border: 0; border-radius: 4px; background: linear-gradient(180deg, #e7d4a8, #d2b97f); box-shadow: inset 0 2px 4px rgba(0,0,0,.35), inset 0 0 0 1px rgba(90,60,20,.5); }
+.field input[type=text] { width: 100%; min-height: 50px; padding: 10px 14px; font: 600 19px var(--f-body); color: #2b1a0a; border: 0; border-radius: 4px; background: linear-gradient(180deg, #e7d4a8, #d2b97f); box-shadow: inset 0 2px 4px rgba(0,0,0,.35), inset 0 0 0 1px rgba(90,60,20,.5); }
 .classes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .cls { position: relative; padding: 10px 4px 8px; border-radius: 6px; text-align: center; background: rgba(10,9,8,.5); box-shadow: inset 0 0 0 1px rgba(201,162,74,.35); transition: box-shadow .3s, background .3s; min-height: 44px; }
 .cls img, .cls .emb-fb { width: 58px; height: 58px; margin: 0 auto 4px; object-fit: contain; transition: transform .8s var(--ease-stone), filter .4s; filter: brightness(.8) saturate(.85); }
@@ -587,3 +587,6 @@ html.rm .subtitle, html.rm .menu .btn { opacity: 1; }
 .pin-label { font-size: 15px; }
 .qchecks input { height: 22px; align-self: center; }
 .cls .cut-fb { width: 58px; height: 58px; margin: 0 auto 4px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #e8c77a, #a57c3b 55%, #4a3410); }
+
+.btn { text-align: center; line-height: 1.25; }
+.rsvp-acts .btn { letter-spacing: .1em; }

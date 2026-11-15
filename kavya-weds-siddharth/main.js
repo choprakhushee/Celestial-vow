@@ -1100,7 +1100,7 @@ function buildRSVP() {
     const im = cutout(c.emblem, "", ""); if (im.tagName !== "IMG") im.textContent = c.name.split(" ").pop()[0];
     im.addEventListener && im.addEventListener("error", () => {}, { once: true });
     b.append(im, h("b", {}, c.name));
-    b.addEventListener("click", () => { $$(".cls", grid).forEach((x) => x.setAttribute("aria-checked", "false")); b.setAttribute("aria-checked", "true"); S.guestClass = c.id; store.save(); desc.textContent = c.line; Audio.sfx.click(); });
+    b.addEventListener("click", () => { $$(".cls", grid).forEach((x) => x.setAttribute("aria-checked", "false")); b.setAttribute("aria-checked", "true"); S.guestClass = c.id; store.save(); desc.textContent = c.line; Audio.sfx.click(); const wa = $("#waBtn"); if (wa) wa.href = waLink(); });
     grid.append(b);
   });
   if (S.guestClass) { const c = CONFIG.guestClasses.find((x) => x.id === S.guestClass); if (c) desc.textContent = c.line; }
@@ -1440,7 +1440,7 @@ function initVeil() {
   const upd = () => {
     const mid = scrollY + innerHeight / 2; let best = null, bd = Infinity;
     for (const b of bounds) { const d = Math.abs(mid - b.y); if (d < bd) { bd = d; best = b; } }
-    const o = best ? Math.pow(clamp(1 - bd / (innerHeight * 0.42)), 1.6) * 0.82 : 0;
+    const o = best ? Math.pow(clamp(1 - bd / (innerHeight * 0.3)), 1.8) * 0.78 : 0;
     if (Math.abs(o - lastO) > 0.01) { veil.style.opacity = o.toFixed(3); lastO = o; }
     if (best) veil.className = best.type === "dark" ? "dark" : "";
     const p = clamp(scrollY / (document.documentElement.scrollHeight - innerHeight));
