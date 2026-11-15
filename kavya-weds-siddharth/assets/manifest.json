@@ -146,6 +146,50 @@
     },
     {
       "files": [
+        "cutouts/astrolabe.webp",
+        "cutouts/astrolabe-ring.webp"
+      ],
+      "purpose": "Countdown astrolabe; the outer ring is cut from the same image in code-free preprocessing so it can counter-rotate",
+      "canva_media_id": "MAHa9TBA0_U",
+      "canva_link": "https://www.canva.com/M/MAHa9TBA0_U",
+      "prompt": "An ornate antique brass astrolabe seen perfectly straight on from the front, centred on a plain flat pale grey background, perfectly circular: concentric engraved brass rings with fine tick marks and abstract star-pointer tracery in the centre, a small suspension ring at the top, warm aged brass with darker patina in the recesses and worn bright edges. Soft even studio light. Photoreal, subtle film grain, grounded and believable, like a prop from a premium historical-fantasy film. No text, letters, numerals, inscriptions, signage, watermarks or logos.",
+      "notes": "Background-removed media: MAHa9dxvgRQ. Hanger removed; ring = outer 20% annulus."
+    },
+    {
+      "files": [
+        "scenes/quest-wedding.webp",
+        "scenes/quest-wedding.jpg"
+      ],
+      "purpose": "The Final Chapter: The Sacred Union, and the finale",
+      "canva_media_id": "MAHa9u_z8xQ",
+      "canva_link": "https://www.canva.com/M/MAHa9u_z8xQ",
+      "prompt": "A stone mandapa on a riverbank at sunset in the Vijayanagara style, carved granite pillars garlanded with strings of white jasmine and orange marigold, a sacred fire burning in a brass fire bowl at its centre, small oil lamps glowing along the steps, the wide calm river reflecting the golden sky, giant granite boulders on the far bank, and very faint and high in the clouds the small floating island with its golden-domed temple. Serene, quiet, reverent. No people. Shot on a 35mm lens. Photoreal environment, natural light, atmospheric haze and depth, realistic weathered materials (granite with lichen and moss, aged brass, worn silk, real water and fire), subtle film grain, grounded and believable, like a still from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Generated with the approved title-city image (MAHa63mNHy8) as the style reference."
+    },
+    {
+      "files": [
+        "scenes/star-sky.webp",
+        "scenes/star-sky.jpg"
+      ],
+      "purpose": "When the Stars Align: countdown and constellation",
+      "canva_media_id": "MAHa9pQLBh4",
+      "canva_link": "https://www.canva.com/M/MAHa9pQLBh4",
+      "prompt": "A real night sky with the Milky Way arching overhead above silhouetted giant rounded granite boulders and the dark outline of a carved temple tower, deep indigo sky with countless natural stars, a faint warm glow on the horizon, a few fireflies glowing low among the rocks. Long exposure astrophotography look, shot on a 20mm lens. Photoreal environment, natural light, atmospheric haze and depth, realistic weathered materials (granite with lichen and moss, aged brass, worn silk, real water and fire), subtle film grain, grounded and believable, like a still from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Generated with the approved title-city image (MAHa63mNHy8) as the style reference."
+    },
+    {
+      "files": [
+        "scenes/quest-sangeet.webp",
+        "scenes/quest-sangeet.jpg"
+      ],
+      "purpose": "Quest III: The Night of a Thousand Lamps; also the blurred RSVP war room",
+      "canva_media_id": "MAHa-EBX45E",
+      "canva_link": "https://www.canva.com/M/MAHa-EBX45E",
+      "prompt": "A royal stone courtyard at night inspired by the lotus-shaped palace pavilion of Hampi, with its tiered arched stone pavilion at the back, lit by hundreds of flaming torches and small clay oil lamps lining the steps and ledges, large barrel drums resting on the stone floor, plain maroon and saffron silk banners hanging from wooden poles, warm firelight against a deep indigo night sky, smoke and floating sparks. Shot on a 28mm lens. Photoreal environment, natural light, atmospheric haze and depth, realistic weathered materials (granite with lichen and moss, aged brass, worn silk, real water and fire), subtle film grain, grounded and believable, like a still from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Generated with the approved title-city image (MAHa63mNHy8) as the style reference."
+    },
+    {
+      "files": [
         "og-image.jpg"
       ],
       "purpose": "Social preview 1200x630",
