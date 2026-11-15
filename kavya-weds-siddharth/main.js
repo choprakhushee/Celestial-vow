@@ -116,7 +116,7 @@ const CONFIG = {
       lore: "Its first note opened every celebration in the old kingdom." },
     { id: "diya", name: "The Undying Lamp", img: "relic-diya", scene: "prologue", x: 88, y: 88, size: 42, rot: 0,
       lore: "Lit by the bride's grandmother. It has outlasted three power cuts and one monsoon." },
-    { id: "feather", name: "The Feather of Grace", img: "relic-feather", scene: "heroes", x: 80, y: 24, size: 48, rot: 24,
+    { id: "feather", name: "The Feather of Grace", img: "relic-feather", scene: "heroes", x: 13, y: 57, size: 44, rot: -28,
       lore: "Dropped by a peacock who watched Kavya rehearse for the Sangeet, and quietly retired." },
     { id: "ring", name: "The Emerald Promise", img: "relic-ring", scene: "gate", x: 16, y: 86, size: 36, rot: 10,
       lore: "Made for one finger only. Siddharth checked the size eleven times." },
@@ -1022,7 +1022,7 @@ function buildConstellation() {
   const pad = h("div", { class: "pad stone", style: { background: "rgba(4,6,14,.35)", boxShadow: "inset 0 0 0 1px rgba(201,162,74,.3)" }, role: "img", "aria-label": "Trace the stars to draw K plus S" });
   const ns = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", "0 0 340 200");
-  svg.innerHTML = `<defs><filter id="cglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g id="segs"></g><line class="live" id="live" x1="0" y1="0" x2="0" y2="0" opacity="0"/><g id="starsG"></g>`;
+  svg.innerHTML = `<defs><filter id="cglow" filterUnits="userSpaceOnUse" x="-20" y="-20" width="380" height="240"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g id="segs"></g><line class="live" id="live" x1="0" y1="0" x2="0" y2="0" opacity="0"/><g id="starsG"></g>`;
   pad.append(svg);
   const seq = []; CONST.strokes.forEach((s, si) => s.forEach((p, pi) => seq.push({ p, si, pi })));
   const starsG = svg.querySelector("#starsG");
