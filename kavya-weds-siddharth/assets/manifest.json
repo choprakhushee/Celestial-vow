@@ -213,6 +213,17 @@
     },
     {
       "files": [
+        "scenes/quest-haldi.webp",
+        "scenes/quest-haldi.jpg"
+      ],
+      "purpose": "Quest II: The Golden Stepwell",
+      "canva_media_id": "MAHbAQZKhZQ",
+      "canva_link": "https://www.canva.com/M/MAHbAQZKhZQ",
+      "prompt": "An ancient geometric stone stepwell in the Vijayanagara style, seen from its upper edge looking down, symmetrical flights of granite steps descending in nested squares to a pool of clear green water, bright morning sunlight flooding in at a low angle and casting crisp geometric shadows, orange and yellow marigold petals floating on the water surface, a few brass pots resting on a step. Shot on a 24mm lens. Photoreal environment, natural light, atmospheric haze and depth, realistic weathered materials (granite with lichen and moss, aged brass, worn silk, real water and fire), subtle film grain, grounded and believable, like a still from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Generated with the approved title-city image (MAHa63mNHy8) as the style reference."
+    },
+    {
+      "files": [
         "og-image.jpg"
       ],
       "purpose": "Social preview 1200x630",
