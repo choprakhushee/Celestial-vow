@@ -1329,6 +1329,7 @@ const SCENE_FX = {
   credits: { particles: null, mood: "sacred", hud: false },
 };
 function setScene(id) {
+  if (titleLocked && id !== "title") return;
   if (id === currentScene) return; currentScene = id;
   const fx = SCENE_FX[id] || {};
   if (!$("#quest").classList.contains("open")) { Particles.setMode(fx.particles || null); Audio.setMood(fx.mood || "calm"); }
@@ -1356,7 +1357,7 @@ function initScroll() {
     window.__lenisTo = (y) => lenis.scrollTo(y, { immediate: true, force: true });
   }
   // active scene tracking
-  Object.entries(SCENES).forEach(([id, sec]) => ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 45%", onToggle: (self) => self.isActive && setScene(id) }));
+  window.__sceneST = Object.entries(SCENES).map(([id, sec]) => ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 45%", onToggle: (self) => self.isActive && setScene(id) }));
   // pause CSS animations for scenes off-screen
   const io = new IntersectionObserver((es) => es.forEach((e) => e.target.classList.toggle("paused", !e.isIntersecting)), { rootMargin: "20% 0px" });
   Object.values(SCENES).forEach((s) => io.observe(s));
@@ -1541,10 +1542,10 @@ async function loading() {
   titleIntro();
 }
 async function titleIntro() {
-  setSideBg("title-city"); Particles.setMode("dust");
+  setSideBg("title-city"); Particles.setMode("dust"); bindMenu();
   const logo = $(".logo"), metal = $(".metal", logo), molten = $(".molten", logo);
   const sub = $(".subtitle"), btns = $$(".menu .btn");
-  if (!MOTION) { logo.classList.add("forged"); sub.style.opacity = 1; btns.forEach((b) => (b.style.opacity = 1)); bindMenu(); return; }
+  if (!MOTION) { logo.classList.add("forged"); sub.style.opacity = 1; btns.forEach((b) => (b.style.opacity = 1)); return; }
   // birds crossing
   $$(".bird").forEach((b, i) => gsap.fromTo(b, { left: "-6%", top: 18 + i * 4 + "%" }, { left: "106%", top: 12 + i * 5 + "%", duration: 22 + i * 3, delay: i * 1.7, repeat: -1, repeatDelay: 8 + i * 2, ease: "none" }));
   gsap.fromTo(".l1", { opacity: 0, letterSpacing: "0.8em" }, { opacity: 1, letterSpacing: "0.4em", duration: 2, ease: "expo.out" });
@@ -1559,9 +1560,8 @@ async function titleIntro() {
   gsap.to(molten, { opacity: 0, duration: 1.2 }); logo.classList.add("forged"); Audio.sfx.bell(587.33);
   gsap.fromTo(sub, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 1.2, ease: "expo.out" });
   gsap.fromTo(btns, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, delay: 0.4, ease: "expo.out" });
-  bindMenu();
 }
-function unlockScroll() { if (!titleLocked) return; titleLocked = false; document.body.classList.remove("locked"); lenis && lenis.start(); ScrollTrigger && ScrollTrigger.refresh(); }
+function unlockScroll() { if (!titleLocked) return; titleLocked = false; document.body.classList.remove("locked"); lenis && lenis.start(); if (window.ScrollTrigger) { ScrollTrigger.refresh(); const act = (window.__sceneST || []).find((t) => t.isActive); if (act) setScene(act.trigger.dataset.scene); } }
 function bindMenu() {
   const go = (el, fx) => { Audio.sfx.tap(); unlockScroll(); setTimeout(() => scrollToEl(el), 60); };
   $("#mBegin").addEventListener("click", () => go(SCENES.prologue));
