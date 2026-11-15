@@ -112,15 +112,15 @@ const CONFIG = {
 
   // x / y are percentages of the scene image; size in px
   relics: [
-    { id: "conch", name: "The Conch of Beginnings", img: "relic-conch", scene: "title", x: 9, y: 71, size: 40, rot: -18,
+    { id: "conch", name: "The Conch of Beginnings", img: "relic-conch", scene: "title", x: 15, y: 70, size: 40, rot: -18,
       lore: "Its first note opened every celebration in the old kingdom." },
     { id: "diya", name: "The Undying Lamp", img: "relic-diya", scene: "prologue", x: 88, y: 88, size: 42, rot: 0,
       lore: "Lit by the bride's grandmother. It has outlasted three power cuts and one monsoon." },
-    { id: "feather", name: "The Feather of Grace", img: "relic-feather", scene: "heroes", x: 90, y: 30, size: 48, rot: 24,
+    { id: "feather", name: "The Feather of Grace", img: "relic-feather", scene: "heroes", x: 80, y: 24, size: 48, rot: 24,
       lore: "Dropped by a peacock who watched Kavya rehearse for the Sangeet, and quietly retired." },
     { id: "ring", name: "The Emerald Promise", img: "relic-ring", scene: "gate", x: 16, y: 86, size: 36, rot: 10,
       lore: "Made for one finger only. Siddharth checked the size eleven times." },
-    { id: "lotus", name: "The Lotus of Patience", img: "relic-lotus", scene: "quest:mehendi", x: 82, y: 50, size: 42, rot: 0,
+    { id: "lotus", name: "The Lotus of Patience", img: "relic-lotus", scene: "quest:mehendi", x: 26, y: 47, size: 42, rot: 0,
       lore: "It blooms only in still water, and at the Mehendi, while the henna dries." },
     { id: "coin", name: "The Coin of Fortune", img: "relic-coin", scene: "stars", x: 12, y: 93, size: 34, rot: 0,
       lore: "Minted the night the two stars met. Its lotus faces both ways, like a good marriage." },
@@ -940,7 +940,7 @@ async function openQuest(q, pin) {
   card.className = "qcard stone inlay" + (q.sacred ? " sacred" : "");
   const accepted = S.quests.includes(q.id);
   card.innerHTML = "";
-  card.append(corners(), h("span", { class: "label" }, q.num), h("h3", { id: "qTitle", class: "gold-text" }, q.name), h("p", { class: "alias" }, q.alias),
+  card.append(...[corners(), h("span", { class: "label" }, q.num), h("h3", { id: "qTitle", class: "gold-text" }, q.name), h("p", { class: "alias" }, q.alias),
     q.sacred ? h("p", { class: "verse" }, q.verse) : null,
     h("dl", { class: "qmeta" }, h("dt", {}, "Date"), h("dd", {}, q.date), h("dt", {}, "Time"), h("dd", {}, q.time + " IST"), h("dt", {}, "Venue"), h("dd", {}, `${q.venue}, ${CONFIG.venueRegion}`), h("dt", {}, "Attire"), h("dd", {}, q.attire),
       q.reward ? [h("dt", {}, "Reward"), h("dd", {}, q.reward)] : null),
@@ -948,7 +948,7 @@ async function openQuest(q, pin) {
       h("a", { class: "btn small", href: CONFIG.mapsUrl, target: "_blank", rel: "noopener" }, "View location"),
       h("button", { class: "btn small", onclick: () => downloadICS(q) }, "Add to calendar"),
       h("button", { class: "btn primary", id: "qAccept", disabled: accepted, onclick: () => acceptQuest(q) }, accepted ? (q.sacred ? "We will see you there" : "Quest accepted") : (q.sacred ? "I will be there" : "Accept Quest"))),
-    h("div", { class: "stamp", html: stampSVG(q.sacred) }));
+    h("div", { class: "stamp", html: stampSVG(q.sacred) })].filter(Boolean));
   ov.classList.add("open");
   if (q.sacred) Audio.setMood("sacred");
   Particles.setMode(q.id === "haldi" ? "petals" : q.id === "sangeet" ? "embers" : q.id === "wedding" ? "dust" : q.id === "reception" ? "fireflies" : "dust");

@@ -577,3 +577,9 @@ html.rm .subtitle, html.rm .menu .btn { opacity: 1; }
 #s-title .kb > .stage { transform: translate(-50%, -50%) translateY(9%); }
 #s-title .kb > picture img { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 7%); mask-image: linear-gradient(180deg, transparent 0, #000 7%); }
 #s-title .title-wrap::before { content: ""; position: absolute; left: -10%; right: -10%; top: -40%; height: 150%; z-index: -1; background: radial-gradient(60% 50% at 50% 45%, rgba(10,12,24,.45), transparent 75%); }
+
+#s-map::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; background: linear-gradient(180deg, rgba(8,6,4,.78), rgba(8,6,4,0) 22%, rgba(8,6,4,0) 82%, rgba(8,6,4,.7)); }
+#s-map .chapter, #s-map .map-hint, #s-map .map-ctrls { z-index: 7; }
+.pin-label { font-size: 15px; }
+.qchecks input { height: 22px; align-self: center; }
+.cls .cut-fb { width: 58px; height: 58px; margin: 0 auto 4px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #e8c77a, #a57c3b 55%, #4a3410); }
