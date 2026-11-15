@@ -190,6 +190,17 @@
     },
     {
       "files": [
+        "scenes/quest-reception.webp",
+        "scenes/quest-reception.jpg"
+      ],
+      "purpose": "Epilogue: The Feast of Stars",
+      "canva_media_id": "MAHbAaxRqJU",
+      "canva_link": "https://www.canva.com/M/MAHbAaxRqJU",
+      "prompt": "An ancient stone palace terrace in the Vijayanagara style at night under a clear starry sky, long rows of glowing brass and paper lanterns strung between carved granite pillars, low tables set for a royal feast with brass vessels, the wide river below reflecting the lantern light, giant boulder hills silhouetted on the horizon. Festive yet elegant, warm lantern light against deep blue night. Shot on a 28mm lens. Photoreal environment, natural light, atmospheric haze and depth, realistic weathered materials (granite with lichen and moss, aged brass, worn silk, real water and fire), subtle film grain, grounded and believable, like a still from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Generated with the approved title-city image (MAHa63mNHy8) as the style reference."
+    },
+    {
+      "files": [
         "og-image.jpg"
       ],
       "purpose": "Social preview 1200x630",

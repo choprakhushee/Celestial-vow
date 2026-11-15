@@ -41,6 +41,8 @@ ENTRIES = [
   "A real night sky with the Milky Way arching overhead above silhouetted giant rounded granite boulders and the dark outline of a carved temple tower, deep indigo sky with countless natural stars, a faint warm glow on the horizon, a few fireflies glowing low among the rocks. Long exposure astrophotography look, shot on a 20mm lens. " + SUFFIX, REF),
  (["scenes/quest-sangeet.webp", "scenes/quest-sangeet.jpg"], "Quest III: The Night of a Thousand Lamps; also the blurred RSVP war room", "MAHa-EBX45E",
   "A royal stone courtyard at night inspired by the lotus-shaped palace pavilion of Hampi, with its tiered arched stone pavilion at the back, lit by hundreds of flaming torches and small clay oil lamps lining the steps and ledges, large barrel drums resting on the stone floor, plain maroon and saffron silk banners hanging from wooden poles, warm firelight against a deep indigo night sky, smoke and floating sparks. Shot on a 28mm lens. " + SUFFIX, REF),
+ (["scenes/quest-reception.webp", "scenes/quest-reception.jpg"], "Epilogue: The Feast of Stars", "MAHbAaxRqJU",
+  "An ancient stone palace terrace in the Vijayanagara style at night under a clear starry sky, long rows of glowing brass and paper lanterns strung between carved granite pillars, low tables set for a royal feast with brass vessels, the wide river below reflecting the lantern light, giant boulder hills silhouetted on the horizon. Festive yet elegant, warm lantern light against deep blue night. Shot on a 28mm lens. " + SUFFIX, REF),
  (["og-image.jpg"], "Social preview 1200x630", None, None, "Built in code from title-city (island band) with the logo and names overlaid; no extra Canva generation."),
  (["favicon.svg"], "Gold lotus-star favicon", None, None, "Hand-coded SVG."),
 ]
