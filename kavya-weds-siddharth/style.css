@@ -364,7 +364,8 @@ a { color: inherit; }
 .plate-view { position: relative; min-height: 100svh; padding: 70px 18px 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .plate-view .bg { background: radial-gradient(80% 60% at 50% 40%, #6b4a24 0%, #2a1a0c 55%, #0b0705 100%); }
 .plate-view .bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 35% at 50% 35%, rgba(255,220,150,.35), transparent 70%); }
-.plate { position: relative; z-index: 5; width: min(100%, 420px); aspect-ratio: 3 / 4.15; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16% 13% 14%; }
+.plate { position: relative; z-index: 5; width: min(94%, 400px); aspect-ratio: 423 / 900; max-height: 92svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-align: center; padding: 30% 13% 12%; }
+@supports (height: 1svh) { .plate { width: min(94%, 400px, 43.5svh); } }
 .plate > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; z-index: -1; filter: drop-shadow(0 20px 40px rgba(0,0,0,.8)) drop-shadow(0 0 30px rgba(255,170,80,.18)); }
 .plate > .cut-fb { position: absolute; inset: 0; z-index: -1; border-radius: 10px; background: var(--stone-tex), radial-gradient(90% 70% at 40% 30%, #c27a45, #8a4a22 55%, #4a2410); box-shadow: inset 0 0 0 3px rgba(60,30,10,.5), inset 0 0 40px rgba(0,0,0,.45); }
 .eng { position: relative; color: transparent; background: linear-gradient(180deg, #ffe9b0, #d4a64e 50%, #8d6223); -webkit-background-clip: text; background-clip: text;
@@ -590,3 +591,10 @@ html.rm .subtitle, html.rm .menu .btn { opacity: 1; }
 
 .btn { text-align: center; line-height: 1.25; }
 .rsvp-acts .btn { letter-spacing: .1em; }
+.plate::before { content: ""; position: absolute; left: 11%; right: 11%; top: 27%; bottom: 8%; z-index: -1; border-radius: 6px; background: radial-gradient(80% 60% at 50% 50%, rgba(28,10,2,.42), rgba(28,10,2,.12) 70%, transparent); }
+.eng { background: linear-gradient(180deg, #fff3cf, #f0cd7c 45%, #c08a3a); filter: drop-shadow(0 -1px 0 rgba(30,10,0,.9)) drop-shadow(0 1px 0 rgba(255,215,160,.25)) drop-shadow(0 0 6px rgba(20,6,0,.55)); -webkit-background-clip: text; background-clip: text; }
+.plate .bless-sub { font-size: clamp(13.5px, 3.7vw, 15.5px); }
+.plate .inv { font-size: clamp(15px, 4.2vw, 18px); line-height: 1.42; margin: 12px 0 10px; }
+.plate .names { font-size: clamp(25px, 7vw, 31px); margin: 6px 0; }
+.plate .parents { font-size: clamp(12.5px, 3.45vw, 14.5px); margin-top: 4px; }
+.plate .pdate { font-size: clamp(15px, 4.1vw, 18px); margin-top: 12px; }
