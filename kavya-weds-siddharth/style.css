@@ -598,3 +598,4 @@ html.rm .subtitle, html.rm .menu .btn { opacity: 1; }
 .plate .names { font-size: clamp(25px, 7vw, 31px); margin: 6px 0; }
 .plate .parents { font-size: clamp(12.5px, 3.45vw, 14.5px); margin-top: 4px; }
 .plate .pdate { font-size: clamp(15px, 4.1vw, 18px); margin-top: 12px; }
+.astro .shine { -webkit-mask-image: url(assets/cutouts/astrolabe.webp); mask-image: url(assets/cutouts/astrolabe.webp); }
