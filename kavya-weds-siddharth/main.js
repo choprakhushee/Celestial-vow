@@ -412,7 +412,7 @@ const Particles = (() => {
     if (m === "dust") Object.assign(p, { vx: rand(-4, 4), vy: rand(-3, 3), s: 2 + z * 6, a: rand(0.15, 0.55) });
     if (m === "fireflies") Object.assign(p, { vx: rand(-10, 10), vy: rand(-8, 8), s: 4 + z * 8, a: 0, ph: rand(0, 6) });
     if (m === "petals") Object.assign(p, { y: rand(-H, 0), vx: rand(-10, 10), vy: rand(18, 40) * (0.5 + z), s: 5 + z * 9, rot: rand(0, 6), vr: rand(-2, 2), a: 0.9 });
-    if (m === "lanterns") Object.assign(p, { y: H + rand(0, H * 1.2), vx: rand(-4, 4), vy: -rand(10, 22) * (0.4 + z), s: 8 + z * 26, a: 0.9 });
+    if (m === "lanterns") Object.assign(p, { y: rand(H * 0.25, H * 1.3), vx: rand(-4, 4), vy: -rand(16, 34) * (0.45 + z), s: 7 + z * 24, a: 0.9 });
     return p;
   }
   const counts = { embers: 26, dust: 26, fireflies: 16, petals: 14, lanterns: 44 };
@@ -1419,6 +1419,7 @@ function initScroll() {
   const C = SCENES.credits, roll = $(".roll", C);
   gsap.to(roll, { y: () => -(roll.offsetHeight + innerHeight), ease: "none", scrollTrigger: { trigger: C, start: "top top", end: () => "+=" + (roll.offsetHeight + innerHeight) * 0.9, pin: true, scrub: 0.6, invalidateOnRefresh: true } });
 
+  ScrollTrigger.sort(); ScrollTrigger.refresh();
   /* Veil: dissolve through mist / light / shadow at every scene boundary */
   initVeil();
   simpleReveals();

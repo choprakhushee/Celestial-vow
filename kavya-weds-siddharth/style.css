@@ -512,7 +512,7 @@ a { color: inherit; }
 
 /* ---------- Finale & credits ---------- */
 #s-finale { height: 100svh; }
-#s-finale .bg .kb { filter: brightness(.55) saturate(.85); }
+#s-finale .bg .kb { filter: brightness(.64) saturate(.9); }
 #s-finale .shade { background: linear-gradient(180deg, rgba(6,8,22,.75), rgba(6,8,22,.2) 45%, rgba(4,4,8,.85)); }
 .f-stars { position: absolute; z-index: 4; top: 22svh; left: 0; right: 0; height: 0; }
 .f-stars i { position: absolute; top: 0; width: 12px; height: 12px; margin: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 6px 2px #fff6d0, 0 0 24px 8px rgba(255,214,120,.6), 0 0 70px 22px rgba(255,190,90,.25); }
