@@ -201,6 +201,18 @@
     },
     {
       "files": [
+        "cutouts/lantern.webp",
+        "cutouts/lantern-sky.webp",
+        "cutouts/banner-cloth.webp"
+      ],
+      "purpose": "Finale sky lanterns (chain cropped off for lantern-sky) and swaying RSVP banners",
+      "canva_media_id": "MAHbAaLudfI",
+      "canva_link": "https://www.canva.com/M/MAHbAaLudfI",
+      "prompt": "Product photograph of two separate antique objects side by side with generous empty space between them on a plain flat pale cream background, evenly lit studio light, soft shadows: on the left a single ornate hanging brass lantern with pierced lotus patterns, glowing warmly from a candle inside, with its short hanging chain; on the right a long narrow plain maroon silk banner with a woven gold border, hanging straight down from a short wooden pole with brass end caps, soft natural folds. Both objects upright, fully visible, not touching. Photoreal, realistic aged brass and worn silk, subtle film grain, grounded and believable, like props from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Background-removed media: MAHbATGwYKs."
+    },
+    {
+      "files": [
         "og-image.jpg"
       ],
       "purpose": "Social preview 1200x630",

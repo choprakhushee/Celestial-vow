@@ -400,7 +400,7 @@ const Particles = (() => {
     sprite("fly", 32, [[0, "rgba(255,255,220,1)"], [0.12, "rgba(230,255,150,.9)"], [0.4, "rgba(200,240,120,.22)"], [1, "rgba(200,240,120,0)"]]);
     sprite("glow", 64, [[0, "rgba(255,226,160,.8)"], [0.35, "rgba(255,170,70,.25)"], [1, "rgba(255,150,50,0)"]]);
     sprite("spark", 16, [[0, "rgba(255,255,240,1)"], [0.3, "rgba(255,210,120,.9)"], [1, "rgba(255,150,40,0)"]]);
-    lanternImg = new Image(); lanternImg.src = CONFIG.assets.cut("lantern");
+    lanternImg = new Image(); lanternImg.src = CONFIG.assets.cut("lantern-sky");
     resize(); addEventListener("resize", resize);
   }
   function resize() { if (!cv) return; dpr = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); }
