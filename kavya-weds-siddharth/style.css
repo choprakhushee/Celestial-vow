@@ -346,10 +346,14 @@ a { color: inherit; }
 .lock { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; touch-action: none; }
 .lock .ring { cursor: grab; }
 .lock .ring .band { fill: url(#stoneGrad); stroke: rgba(0,0,0,.6); stroke-width: 1; }
-.lock .ring .glyph { fill: #d9c79c; opacity: .9; }
+.lock .ring .glyph { fill: #d9c79c; opacity: .92; }
+.lock .ring .cut .glyph { fill: rgba(0,0,0,.65); opacity: 1; }
+.lock .ring .cut .glyph-stroke { stroke: rgba(0,0,0,.65); }
 .lock .ring .glyph-stroke { stroke: #d9c79c; fill: none; stroke-width: 1.6; stroke-linecap: round; }
 .lock .ring.ok .band { stroke: rgba(242,220,154,.55); stroke-width: 2; }
-.lock .ring.lit .glyph, .lock .ring.lit .glyph-stroke { fill: #ffe7a8; stroke: #ffe7a8; filter: url(#glow); }
+.lock .ring.lit > g > .glyph, .lock .ring.lit > g > g:not(.cut) .glyph { fill: #ffe7a8; filter: url(#glow); }
+.lock .ring.lit > g > .glyph-stroke, .lock .ring.lit > g > g:not(.cut) .glyph-stroke { stroke: #ffe7a8; filter: url(#glow); }
+.lock .ring.lit .band { stroke: rgba(255,231,168,.8); stroke-width: 2; }
 .lock-hint { position: absolute; z-index: 7; left: 0; right: 0; top: calc(env(safe-area-inset-top) + 60px); text-align: center; padding: 0 20px; }
 .lock-hint p { font-style: italic; font-size: 17px; color: #f3e5c4; text-shadow: 0 1px 8px #000; margin-top: 6px; }
 .lock-ctrls { position: absolute; z-index: 7; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom) + 76px); display: flex; justify-content: center; gap: 8px; }

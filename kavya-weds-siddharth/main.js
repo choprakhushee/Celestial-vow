@@ -719,11 +719,11 @@ function buildLock(gv, gbg) {
   LOCK.rings.forEach((ring, ri) => {
     let g = `<g class="ring" data-ring="${ri}"><path class="band" fill-rule="evenodd" d="${annulus(ring.r0, ring.r1)}" opacity=".93"/>`;
     g += `<circle r="${ring.r1 - 0.8}" fill="none" stroke="rgba(255,255,255,.08)"/><circle r="${ring.r0 + 0.8}" fill="none" stroke="rgba(0,0,0,.5)"/>`;
-    ring.glyphs.forEach((gl, i) => { const a = i * 45, rm = (ring.r0 + ring.r1) / 2; g += `<g transform="rotate(${a}) translate(0 ${-rm})" filter="url(#carve)">${GLYPHS[gl]}</g>`; });
+    ring.glyphs.forEach((gl, i) => { const a = i * 45, rm = (ring.r0 + ring.r1) / 2; g += `<g transform="rotate(${a}) translate(0 ${-rm})"><g class="cut" transform="translate(0 .9)">${GLYPHS[gl]}</g>${GLYPHS[gl]}</g>`; });
     for (let i = 0; i < 8; i++) g += `<line transform="rotate(${i * 45 + 22.5})" y1="${-ring.r1 + 2}" y2="${-ring.r0 - 2}" stroke="rgba(0,0,0,.35)" stroke-width=".8"/>`;
     g += `</g>`; inner += g;
   });
-  inner += `<circle r="22" fill="url(#stoneGrad)" stroke="rgba(242,220,154,.5)"/><g transform="scale(1.35)" filter="url(#carve)">${GLYPHS.lotus.replace('class="glyph"', 'class="glyph" fill="#e8cf93"')}</g>`;
+  inner += `<circle r="22" fill="url(#stoneGrad)" stroke="rgba(242,220,154,.5)"/><g transform="scale(1.35)">${GLYPHS.lotus.replace('class="glyph"', 'class="glyph" fill="#e8cf93"')}</g>`;
   inner += `<path d="M0 -106 l-6 -9 h12z" fill="#e8cf93" stroke="#5a4520"/>`; // notch marker at the top
   svg.innerHTML = inner;
   wrap.append(cutout("stone-disc", "disc", ""), svg);
@@ -1314,8 +1314,8 @@ function scrollToEl(el, instant = false, offset = 0) {
   if (!el) return;
   const target = el.closest(".pin-spacer") || el;
   const y = target.getBoundingClientRect().top + scrollY + offset;
-  if (lenis && !instant) lenis.scrollTo(y, { duration: 1.8, easing: (t) => 1 - Math.pow(1 - t, 4) });
-  else { lenis ? lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y); }
+  if (lenis && !instant) lenis.scrollTo(y, { duration: 1.8, force: true, easing: (t) => 1 - Math.pow(1 - t, 4) });
+  else { lenis ? lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo(0, y); }
 }
 const SCENE_FX = {
   title: { particles: "dust", mood: "calm", hud: false },
@@ -1335,7 +1335,8 @@ function setScene(id) {
   if (!titleLocked) hud(!!fx.hud);
   const sec = SCENES[id]; const key = sec && (sec._bgKey || { heroes: "hero-bride", gate: "sanctum-door", map: "world-map" }[id]);
   if (key) setSideBg(key);
-  if (id !== "title") { S.lastScene = id; store.save(); }
+  clearTimeout(setScene._t);
+  if (id !== "title" && !titleLocked) setScene._t = setTimeout(() => { if (currentScene === id) { S.lastScene = id; store.save(); } }, 1200);
 }
 function setSideBg(key) {
   const sb = $("#sideBg"); if (!sb || innerWidth < 560) return;
