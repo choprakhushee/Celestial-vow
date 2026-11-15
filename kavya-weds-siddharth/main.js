@@ -84,20 +84,20 @@ const CONFIG = {
   quests: [
     { id: "mehendi", num: "Quest I", name: "The Garden of Henna", alias: "Mehendi", start: "2028-01-19T16:00:00+05:30", hours: 4,
       date: "Wednesday, 19 January 2028", time: "4:00 PM", venue: "The Lotus Pavilion", attire: "Garden silks, pastels",
-      reward: "+10 Joy, intricate patterns", scene: "quest-mehendi", map: [30, 70] },
+      reward: "+10 Joy, intricate patterns", scene: "quest-mehendi", map: [31, 69] },
     { id: "haldi", num: "Quest II", name: "The Golden Stepwell", alias: "Haldi", start: "2028-01-20T10:00:00+05:30", hours: 3,
       date: "Thursday, 20 January 2028", time: "10:00 AM", venue: "The Stepwell Courtyard", attire: "Yellow; clothes you don't mind ruining",
-      reward: "+20 Glow", scene: "quest-haldi", map: [62, 55] },
+      reward: "+20 Glow", scene: "quest-haldi", map: [55, 51] },
     { id: "sangeet", num: "Quest III", name: "The Night of a Thousand Lamps", alias: "Sangeet", start: "2028-01-20T20:00:00+05:30", hours: 4,
       date: "Thursday, 20 January 2028", time: "8:00 PM", venue: "The Royal Courtyard", attire: "Festive finery, dancing shoes",
-      reward: "+50 Joy, lost voice", scene: "quest-sangeet", map: [34, 40] },
+      reward: "+50 Joy, lost voice", scene: "quest-sangeet", map: [66, 38] },
     { id: "wedding", num: "The Final Chapter", name: "The Sacred Union", alias: "Wedding", start: "2028-01-21T18:30:00+05:30", hours: 4,
       date: "Friday, 21 January 2028", time: "6:30 PM", venue: "The Riverside Mandapa", attire: "Traditional South Indian finery",
-      reward: null, sacred: true, scene: "quest-wedding", map: [66, 27],
+      reward: null, sacred: true, scene: "quest-wedding", map: [24, 34],
       verse: "Beside the river, before the sacred fire, two families become one. We would be honoured by your presence and your blessings." },
     { id: "reception", num: "Epilogue", name: "The Feast of Stars", alias: "Reception", start: "2028-01-22T19:30:00+05:30", hours: 4,
       date: "Saturday, 22 January 2028", time: "7:30 PM", venue: "The Palace Terrace", attire: "Royal evening wear",
-      reward: "Legendary Feast", scene: "quest-reception", map: [40, 14] },
+      reward: "Legendary Feast", scene: "quest-reception", map: [47, 27] },
   ],
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hampi+Karnataka",
 
@@ -545,7 +545,7 @@ function buildAll() {
   const tstage = h("div", { class: "stage" });
   tstage.append(h("div", { class: "rays" }));
   // waterfalls under the floating island (positions in % of the image)
-  [[42.5, 26, 9], [46, 27, 13], [60.5, 26.5, 11], [64, 27, 15]].forEach(([x, y, hgt]) => tstage.append(h("i", { class: "falls", style: { left: x + "%", top: y + "%", height: hgt + "%" } })));
+  [[40, 23, 10], [41.4, 23.5, 13], [57.5, 23, 11], [60, 23.5, 14], [64, 23, 9]].forEach(([x, y, hgt]) => tstage.append(h("i", { class: "falls", style: { left: x + "%", top: y + "%", height: hgt + "%" } })));
   tstage.append(h("div", { class: "mist", style: { top: "46%" } }), h("div", { class: "mist", style: { top: "60%", animationDuration: "40s", opacity: ".4" } }));
   for (let i = 0; i < 4; i++) tstage.append(h("div", { class: "bird", html: '<svg viewBox="0 0 16 8"><path d="M0 4c3-3 5-3 8 0 3-3 5-3 8 0" fill="none" stroke="#1d1a1a" stroke-width="1.1"/></svg>' }));
   $(".kb", tbg).append(tstage);
@@ -554,9 +554,9 @@ function buildAll() {
     h("span", { class: "l1 gold-text", "aria-hidden": "true" }, CONFIG.game.title[0]),
     h("span", { class: "metal", "aria-hidden": "true" }, CONFIG.game.title[1]),
     h("span", { class: "molten", "aria-hidden": "true" }, CONFIG.game.title[1]));
-  T.append(h("div", { class: "title-wrap content" }, logo,
-    h("p", { class: "subtitle" }, CONFIG.game.subtitle, h("em", {}, `${CONFIG.couple.bride.first} & ${CONFIG.couple.groom.first}`))));
+  T.append(h("div", { class: "title-wrap content" }, logo));
   const menu = h("nav", { class: "menu", "aria-label": "Main menu" },
+    h("p", { class: "subtitle" }, CONFIG.game.subtitle, h("em", {}, `${CONFIG.couple.bride.first} & ${CONFIG.couple.groom.first}`)),
     h("button", { class: "btn primary", id: "mBegin" }, "Begin Quest"),
     S.lastScene && S.lastScene !== "title" ? h("button", { class: "btn", id: "mContinue" }, "Continue") : null,
     h("button", { class: "btn", id: "mSettings" }, "Settings"),
@@ -740,7 +740,7 @@ function buildLock(gv, gbg) {
     h("button", { "aria-label": `Turn ${n.toLowerCase()} ring right`, onclick: () => turn(ri, 1) }, "⟳")))));
   gv.append(ctrls, h("button", { class: "btn ghost skip", id: "gateSkip" }, "Skip ›"));
   // lamp flames over the two lamps in the image
-  const st = h("div", { class: "stage", style: { pointerEvents: "none" } }, h("i", { class: "flame", style: { left: "13.5%", top: "71%" } }), h("i", { class: "flame", style: { left: "86.5%", top: "71%", animationDelay: "-1.3s" } }));
+  const st = h("div", { class: "stage", style: { pointerEvents: "none" } }, h("i", { class: "flame", style: { left: "14%", top: "56%" } }), h("i", { class: "flame", style: { left: "85.5%", top: "56%", animationDelay: "-1.3s" } }));
   $(".kb", gbg).append(st);
   const fit = () => coverBox(st, $(".tilt", gbg)); requestAnimationFrame(fit); addEventListener("resize", fit);
 
@@ -789,7 +789,7 @@ async function openGate(ringEls, quick) {
   Audio.sfx.door();
   // split the door image into two leaves that swing inward, with light pouring out
   const tilt = $(".tilt", gv); const box = tilt.getBoundingClientRect(); const gvR = gv.getBoundingClientRect();
-  const door = { x0: 0.235, x1: 0.765, y0: 0.2, y1: 0.8 }; // door area in % of image
+  const door = { x0: 0.255, x1: 0.765, y0: 0.29, y1: 0.8 }; // door area in % of image
   const imgBox = coverRect(box);
   const dx0 = imgBox.left + imgBox.w * door.x0 - gvR.left, dx1 = imgBox.left + imgBox.w * door.x1 - gvR.left;
   const dy0 = imgBox.top + imgBox.h * door.y0 - gvR.top, dy1 = imgBox.top + imgBox.h * door.y1 - gvR.top;
@@ -1352,6 +1352,7 @@ function initScroll() {
     lenis = new Lenis({ duration: 1.25, smoothWheel: true, touchMultiplier: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    window.__lenisTo = (y) => lenis.scrollTo(y, { immediate: true, force: true });
   }
   // active scene tracking
   Object.entries(SCENES).forEach(([id, sec]) => ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 45%", onToggle: (self) => self.isActive && setScene(id) }));
@@ -1372,15 +1373,17 @@ function initScroll() {
   /* Prologue: pinned, the palm leaves fan out and the lore burns in line by line */
   const P = SCENES.prologue, leaves = $$(".leaf", P), n = leaves.length;
   const leafPos = () => { const box = $(".leaves", P).getBoundingClientRect(); const lh = leaves[0].offsetHeight; const gap = Math.max(4, (box.height - lh * n) / (n - 1)); return leaves.map((_, i) => -box.height / 2 + lh / 2 + i * (lh + gap) - lh / 2); };
-  leaves.forEach((l, i) => gsap.set(l, { yPercent: -50, y: rand(-6, 6), x: rand(-6, 6), rotation: rand(-4, 4), "--p": "-8%", opacity: i < 3 ? 1 : 0.0 }));
+  const jit = leaves.map(() => ({ y: rand(-6, 6), x: rand(-6, 6), r: rand(-4, 4) }));
   const ptl = gsap.timeline({ defaults: { ease: "power2.inOut" }, scrollTrigger: { trigger: P, start: "top top", end: `+=${n * 70}%`, pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true } });
-  ptl.from(".leaves", { scale: 0.85, rotation: -6, opacity: 0, duration: 1 });
+  ptl.fromTo(".leaves", { x: 0, y: 0, xPercent: -50, yPercent: -50, scale: 0.85, rotation: -6, opacity: 0 }, { x: 0, y: 0, xPercent: -50, yPercent: -50, scale: 1, rotation: 0, opacity: 1, duration: 1 });
+  ptl.fromTo("#s-prologue .chapter", { opacity: 1, y: 0 }, { opacity: 0, y: -30, duration: 0.8, immediateRender: false }, "<0.3");
   let pos = leafPos();
   leaves.forEach((l, i) => {
-    ptl.to(l, { y: () => (pos = leafPos())[i], yPercent: 0, x: 0, rotation: i % 2 ? 0.6 : -0.6, opacity: 1, duration: 1, ease: "power3.inOut" }, i === 0 ? ">" : "<0.35");
+    ptl.fromTo(l, { y: jit[i].y, yPercent: -50, x: jit[i].x, rotation: jit[i].r, opacity: i < 3 ? 1 : 0 },
+      { y: () => (pos = leafPos())[i], yPercent: 0, x: 0, rotation: i % 2 ? 0.6 : -0.6, opacity: 1, duration: 1, ease: "power3.inOut", immediateRender: i === 0 || true }, i === 0 ? ">" : "<0.35");
     ptl.call(() => Audio.sfx.rustle(), null, "<");
-    ptl.to(l, { "--p": "112%", duration: 1.2, ease: "none" }, "<0.55");
-    if (i === CONFIG.loreStarsLine) ptl.to(".star-pair i", { opacity: 1, duration: 0.6, stagger: 0.2 }, "<0.4").to(".star-pair i:first-child", { left: "34%", duration: n, ease: "none" }, "<").to(".star-pair i:last-child", { left: "66%", duration: n, ease: "none" }, "<");
+    ptl.fromTo(l, { "--p": "-8%" }, { "--p": "112%", duration: 1.2, ease: "none", immediateRender: false }, "<0.55");
+    if (i === CONFIG.loreStarsLine) ptl.fromTo(".star-pair i", { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.2, immediateRender: false }, "<0.4").fromTo(".star-pair i:first-child", { left: "14%" }, { left: "34%", duration: n, ease: "none", immediateRender: false }, "<").fromTo(".star-pair i:last-child", { left: "86%" }, { left: "66%", duration: n, ease: "none", immediateRender: false }, "<");
   });
   ptl.to({}, { duration: 0.6 });
 
