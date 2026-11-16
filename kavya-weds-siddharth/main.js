@@ -1357,11 +1357,11 @@ function initScroll() {
     window.__lenisTo = (y) => lenis.scrollTo(y, { immediate: true, force: true });
   }
   // active scene tracking
-  window.__sceneST = Object.entries(SCENES).map(([id, sec]) => ScrollTrigger.create({ trigger: sec, start: "top 55%", end: "bottom 45%", onToggle: (self) => self.isActive && setScene(id) }));
+  const sceneTriggers = () => { window.__sceneST = Object.entries(SCENES).map(([id, sec]) => ScrollTrigger.create({ trigger: sec.closest(".pin-spacer") || sec, start: "top 55%", end: "bottom 45%", refreshPriority: -1, onToggle: (self) => self.isActive && setScene(id) })); window.__sceneST.forEach((t, i) => (t.sceneId = Object.keys(SCENES)[i])); };
   // pause CSS animations for scenes off-screen
   const io = new IntersectionObserver((es) => es.forEach((e) => e.target.classList.toggle("paused", !e.isIntersecting)), { rootMargin: "20% 0px" });
   Object.values(SCENES).forEach((s) => io.observe(s));
-  if (!MOTION) { simpleReveals(); return; }
+  if (!MOTION) { sceneTriggers(); simpleReveals(); return; }
 
   /* camera: every background pushes in as it arrives and drifts on as it leaves */
   ["heroes", "stars", "rsvp"].forEach((id) => {
@@ -1419,7 +1419,7 @@ function initScroll() {
   const C = SCENES.credits, roll = $(".roll", C);
   gsap.to(roll, { y: () => -(roll.offsetHeight + innerHeight), ease: "none", scrollTrigger: { trigger: C, start: "top top", end: () => "+=" + (roll.offsetHeight + innerHeight) * 0.9, pin: true, scrub: 0.6, invalidateOnRefresh: true } });
 
-  ScrollTrigger.sort(); ScrollTrigger.refresh();
+  sceneTriggers(); ScrollTrigger.sort(); ScrollTrigger.refresh();
   /* Veil: dissolve through mist / light / shadow at every scene boundary */
   initVeil();
   simpleReveals();
@@ -1445,6 +1445,7 @@ function initVeil() {
     const o = best ? Math.pow(clamp(1 - bd / (innerHeight * 0.3)), 1.8) * 0.78 : 0;
     if (Math.abs(o - lastO) > 0.01) { veil.style.opacity = o.toFixed(3); lastO = o; }
     if (best) veil.className = best.type === "dark" ? "dark" : "";
+    if (!titleLocked && window.__sceneST) { const act = window.__sceneST.filter((t) => t.isActive).pop(); if (act) setScene(act.sceneId); }
     const p = clamp(scrollY / (document.documentElement.scrollHeight - innerHeight));
     $("#hud .bar i").style.transform = `scaleX(${p})`; $("#hud .pct").textContent = `JOURNEY ${Math.round(p * 100)}%`; $("#hud .bar").setAttribute("aria-valuenow", Math.round(p * 100));
   };
@@ -1562,7 +1563,7 @@ async function titleIntro() {
   gsap.fromTo(sub, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 1.2, ease: "expo.out" });
   gsap.fromTo(btns, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, delay: 0.4, ease: "expo.out" });
 }
-function unlockScroll() { if (!titleLocked) return; titleLocked = false; document.body.classList.remove("locked"); lenis && lenis.start(); if (window.ScrollTrigger) { ScrollTrigger.refresh(); const act = (window.__sceneST || []).find((t) => t.isActive); if (act) setScene(act.trigger.dataset.scene); } }
+function unlockScroll() { if (!titleLocked) return; titleLocked = false; document.body.classList.remove("locked"); lenis && lenis.start(); if (window.ScrollTrigger) { ScrollTrigger.refresh(); const act = (window.__sceneST || []).find((t) => t.isActive); if (act) setScene(act.sceneId); } }
 function bindMenu() {
   const go = (el, fx) => { Audio.sfx.tap(); unlockScroll(); setTimeout(() => scrollToEl(el), 60); };
   $("#mBegin").addEventListener("click", () => go(SCENES.prologue));
