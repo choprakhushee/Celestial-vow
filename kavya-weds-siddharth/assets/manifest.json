@@ -224,6 +224,16 @@
     },
     {
       "files": [
+        "cutouts/stone-disc.webp"
+      ],
+      "purpose": "Granite base of the three-ring gate lock (rings drawn in SVG on top)",
+      "canva_media_id": "MAHbAUrM1Do",
+      "canva_link": "https://www.canva.com/M/MAHbAUrM1Do",
+      "prompt": "A single smooth round carved granite disc seen perfectly straight on, centred on a plain flat pale grey background: a thick circular stone slab with a plain smooth flat centre and an outer ring of shallow carved lotus petals around its rim, weathered grey granite with natural speckles, faint lichen and worn edges. Soft even studio light from above, gentle shadow. Photoreal, subtle film grain, grounded and believable, like a prop from a premium historical-fantasy film. No text, letters, inscriptions, signage, watermarks or logos.",
+      "notes": "Background-removed media: MAHbAUFv4pk."
+    },
+    {
+      "files": [
         "og-image.jpg"
       ],
       "purpose": "Social preview 1200x630",
